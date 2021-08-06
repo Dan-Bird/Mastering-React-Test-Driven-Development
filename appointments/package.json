@@ -27,10 +27,5 @@
     "@babel/runtime": "^7.3.4",
     "react": "^16.9.0-alpha.0",
     "react-dom": "^16.9.0-alpha.0"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 67,
-    "jsxBracketSameLine": true
   }
 }
