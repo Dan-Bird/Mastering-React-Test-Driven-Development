@@ -24,24 +24,31 @@ describe('CustomerForm', () => {
     container.querySelector(`label[for="${formElement}"]`);
 
   const itRendersAsATextBox = fieldName => {
-    it('renders the first name field as a textbox', () => {
+    it('renders the field as a textbox', () => {
       render(<CustomerForm />);
       expectToBeInputFieldOfTypeText(field(fieldName));
     });
   };
 
   const itIncludesTheExistingValue = fieldName => {
-    it('includes the existing value for the first name', () => {
+    it('includes the existing value for the field', () => {
       render(<CustomerForm {...{ [fieldName]: 'value' }} />);
       expect(field(fieldName).value).toEqual('value');
     });
   };
 
   const itRendersALabelForGivenField = (field, labelText) => {
-    it('renders a label for the first name field', () => {
+    it('renders a label for the field', () => {
       render(<CustomerForm />);
       expect(labelFor(field)).not.toBeNull();
       expect(labelFor(field).textContent).toEqual(labelText);
+    });
+  };
+
+  const itAssignsIDMatchingLabelIDToField = (fieldName, expectedId) => {
+    it('assigns an ID that matches the label id to the field', () => {
+      render(<CustomerForm />);
+      expect(field(fieldName).id).toEqual(expectedId);
     });
   };
 
@@ -58,10 +65,7 @@ describe('CustomerForm', () => {
 
     itRendersALabelForGivenField('firstName', 'First Name');
 
-    it('assigns an ID that matches the label id to the first name field', () => {
-      render(<CustomerForm />);
-      expect(field('firstName').id).toEqual('firstName');
-    });
+    itAssignsIDMatchingLabelIDToField('firstName', 'firstName');
 
     // const itSavesExistingFirstNameWhenSubmitted = () => {
 
