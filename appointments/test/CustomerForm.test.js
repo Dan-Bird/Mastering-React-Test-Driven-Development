@@ -109,7 +109,7 @@ describe('CustomerForm', () => {
 
     itIncludesTheExistingValue('lastName');
 
-    // itRendersALabelForGivenField('firstName', 'First Name');
+    itRendersALabelForGivenField('lastName', 'Last Name');
 
     // itAssignsIDMatchingLabelIDToField('firstName', 'firstName');
 
