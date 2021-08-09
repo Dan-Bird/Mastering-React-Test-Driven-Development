@@ -37,6 +37,14 @@ describe('CustomerForm', () => {
     });
   };
 
+  const itRendersALabelForGivenField = (field, labelText) => {
+    it('renders a label for the first name field', () => {
+      render(<CustomerForm />);
+      expect(labelFor(field)).not.toBeNull();
+      expect(labelFor(field).textContent).toEqual(labelText);
+    });
+  };
+
   it('renders a form', () => {
     render(<CustomerForm />);
 
@@ -48,16 +56,16 @@ describe('CustomerForm', () => {
 
     itIncludesTheExistingValue('firstName');
 
-    it('renders a label for the first name field', () => {
-      render(<CustomerForm />);
-      expect(labelFor('firstName')).not.toBeNull();
-      expect(labelFor('firstName').textContent).toEqual('First Name');
-    });
+    itRendersALabelForGivenField('firstName', 'First Name');
 
     it('assigns an ID that matches the label id to the first name field', () => {
       render(<CustomerForm />);
       expect(field('firstName').id).toEqual('firstName');
     });
+
+    // const itSavesExistingFirstNameWhenSubmitted = () => {
+
+    // }
 
     it('saves existing first name when submitted', async () => {
       expect.hasAssertions();
