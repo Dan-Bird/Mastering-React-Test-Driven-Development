@@ -23,6 +23,20 @@ describe('CustomerForm', () => {
   const labelFor = formElement =>
     container.querySelector(`label[for="${formElement}"]`);
 
+  const itRendersAsATextBox = fieldName => {
+    it('renders the first name field as a textbox', () => {
+      render(<CustomerForm />);
+      expectToBeInputFieldOfTypeText(field(fieldName));
+    });
+  };
+
+  const itIncludesTheExistingValue = fieldName => {
+    it('includes the existing value for the first name', () => {
+      render(<CustomerForm {...{ [fieldName]: 'value' }} />);
+      expect(field(fieldName).value).toEqual('value');
+    });
+  };
+
   it('renders a form', () => {
     render(<CustomerForm />);
 
@@ -30,17 +44,9 @@ describe('CustomerForm', () => {
   });
 
   describe('first name field', () => {
-    it('renders the first name field as a textbox', () => {
-      render(<CustomerForm />);
+    itRendersAsATextBox('firstName');
 
-      expectToBeInputFieldOfTypeText(field('firstName'));
-    });
-
-    it('includes the existing value for the first name', () => {
-      render(<CustomerForm firstName="Ashley" />);
-
-      expect(field('firstName').value).toEqual('Ashley');
-    });
+    itIncludesTheExistingValue('firstName');
 
     it('renders a label for the first name field', () => {
       render(<CustomerForm />);
