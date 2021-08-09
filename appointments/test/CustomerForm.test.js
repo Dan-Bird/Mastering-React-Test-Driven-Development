@@ -107,7 +107,7 @@ describe('CustomerForm', () => {
   describe('last name field', () => {
     itRendersAsATextBox('lastName');
 
-    // itIncludesTheExistingValue('firstName');
+    itIncludesTheExistingValue('lastName');
 
     // itRendersALabelForGivenField('firstName', 'First Name');
 
