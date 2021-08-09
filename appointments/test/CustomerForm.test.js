@@ -111,7 +111,7 @@ describe('CustomerForm', () => {
 
     itRendersALabelForGivenField('lastName', 'Last Name');
 
-    // itAssignsIDMatchingLabelIDToField('firstName', 'firstName');
+    itAssignsIDMatchingLabelIDToField('lastName', 'lastName');
 
     // itSavesExistingFirstNameWhenSubmitted('Ashley');
 
