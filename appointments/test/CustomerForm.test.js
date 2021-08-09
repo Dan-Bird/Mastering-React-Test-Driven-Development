@@ -103,4 +103,18 @@ describe('CustomerForm', () => {
 
     itSubmitsNewValue('firstName', 'firstName');
   });
+
+  describe('last name field', () => {
+    itRendersAsATextBox('lastName');
+
+    // itIncludesTheExistingValue('firstName');
+
+    // itRendersALabelForGivenField('firstName', 'First Name');
+
+    // itAssignsIDMatchingLabelIDToField('firstName', 'firstName');
+
+    // itSavesExistingFirstNameWhenSubmitted('Ashley');
+
+    // itSubmitsNewValue('firstName', 'firstName');
+  });
 });
