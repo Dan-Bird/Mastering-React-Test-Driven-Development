@@ -19,6 +19,9 @@ describe('CustomerForm', () => {
     expect(formElement.type).toBe('text');
   };
 
+  const labelFor = formElement =>
+    container.querySelector(`label[for="${formElement}"]`);
+
   it('renders a form', () => {
     render(<CustomerForm />);
 
@@ -35,5 +38,11 @@ describe('CustomerForm', () => {
     render(<CustomerForm firstName="Ashley" />);
 
     expect(firstNameField().value).toEqual('Ashley');
+  });
+
+  it('renders a label for the first name field', () => {
+    render(<CustomerForm />);
+    expect(labelFor('firstName')).not.toBeNull();
+    expect(labelFor('firstName').textContent).toEqual('First Name');
   });
 });
