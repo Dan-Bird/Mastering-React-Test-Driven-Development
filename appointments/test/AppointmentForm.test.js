@@ -11,6 +11,10 @@ describe('AppointmentForm', () => {
 
   const form = id => container.querySelector(`form[id="${id}"]`);
   const field = name => form('appointment').elements[name];
+  const findOption = (dropDownNode, textContent) => {
+    const options = Array.from(dropDownNode.childNodes);
+    return options.find(option => option.textContent === textContent);
+  };
 
   it('renders a form', () => {
     render(<AppointmentForm />);
@@ -42,6 +46,18 @@ describe('AppointmentForm', () => {
         .slice(1);
 
       expect(renderedServices).toEqual(selectableServices);
+    });
+
+    it('pre-selects the existing value', () => {
+      const services = ['cut', 'blow-dry'];
+
+      render(
+        <AppointmentForm selectableServices={services} service="blow-dry" />
+      );
+
+      const option = findOption(field('service'), 'blow-dry');
+
+      expect(option.selected).toBeTruthy();
     });
   });
 });
