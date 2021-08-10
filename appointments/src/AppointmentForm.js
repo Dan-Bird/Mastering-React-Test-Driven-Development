@@ -1,6 +1,17 @@
 import React from 'react';
 
-export const AppointmentForm = ({ selectableServices = [] }) => (
+const defaultSelectableServices = [
+  'Cut',
+  'Blow-dry',
+  'Cut & color',
+  'Beard trim',
+  'Cut & beard trim',
+  'Extensions',
+];
+
+export const AppointmentForm = ({
+  selectableServices = defaultSelectableServices,
+}) => (
   <form id="appointment">
     <select name="service">
       <option />
