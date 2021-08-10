@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
-import { createContainer } from './domManipulators';
+import { createContainer } from '../domManipulators';
 import { CustomerForm } from '../src/CustomerForm';
 
 describe('CustomerForm', () => {
