@@ -59,5 +59,12 @@ describe('AppointmentForm', () => {
 
       expect(option.selected).toBeTruthy();
     });
+
+    it('renders a label', () => {
+      render(<AppointmentForm />);
+      const label = form('appointment').querySelector(`label[for="service"]`);
+      expect(label).not.toBeNull();
+      expect(label.textContent).toEqual('Service');
+    });
   });
 });
